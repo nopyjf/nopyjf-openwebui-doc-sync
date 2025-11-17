@@ -4,12 +4,16 @@ This repository contains scripts to download specified Confluence pages as Markd
 
 ## Pages to Download
 
-Add the Confluence pages you want to download to the list below. The script will parse this file to find them.
+The pages to download are listed in the `DOCS.md` file. Add each Confluence page URL you want to download to this file, with each URL on a new line preceded by a hyphen.
 
+For example, `DOCS.md` should look like this:
+```markdown
 - https://your-domain.atlassian.net/spaces/12334/wiki/pages/123456
+- https://your-domain.atlassian.net/spaces/12334/wiki/pages/789012
+```
 
 The scripts will:
-1. Read the `README.md` file to find all Confluence page URLs.
+1. Read the `DOCS.md` file to find all Confluence page URLs.
 2. Create a `knowledges` directory if it doesn't exist.
 3. For each URL, it will call the Confluence API to fetch the page content.
 4. Convert the page content from HTML to Markdown.

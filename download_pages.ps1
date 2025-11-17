@@ -31,13 +31,13 @@ if (-not (Test-Path -Path $OutputDirectory)) {
     New-Item -ItemType Directory -Path $OutputDirectory | Out-Null
 }
 
-# Find Confluence page URLs in README.md
-$readmePath = "README.md"
+# Find Confluence page URLs in DOCS.md
+$docsPath = "DOCS.md"
 $regex = 'https://[a-zA-Z0-9.-]*/wiki/spaces/[a-zA-Z0-9]*/pages/[0-9]*/[^)]*'
-$urls = Get-Content $readmePath | Select-String -Pattern $regex -AllMatches | ForEach-Object { $_.Matches.Value }
+$urls = Get-Content $docsPath | Select-String -Pattern $regex -AllMatches | ForEach-Object { $_.Matches.Value }
 
 if (-not $urls) {
-    Write-Host "No Confluence page URLs found in README.md."
+    Write-Host "No Confluence page URLs found in DOCS.md."
     Write-Host "Please add URLs in the format: https://domain/wiki/spaces/SPACE/pages/12345/Page-Title"
     exit 0
 }

@@ -34,12 +34,12 @@ done
 OUTPUT_DIR="knowledges"
 mkdir -p "$OUTPUT_DIR"
 
-# Find Confluence page URLs in README.md
+# Find Confluence page URLs in DOCS.md
 # This regex is more specific to the common Confluence URL structure.
-URLS=$(grep -o 'https://[a-zA-Z0-9.-]*/wiki/spaces/[a-zA-Z0-9]*/pages/[0-9]*/[^)]*' README.md || true)
+URLS=$(grep -o 'https://[a-zA-Z0-9.-]*/wiki/spaces/[a-zA-Z0-9]*/pages/[0-9]*/[^)]*' DOCS.md || true)
 
 if [ -z "$URLS" ]; then
-    echo "No Confluence page URLs found in README.md."
+    echo "No Confluence page URLs found in DOCS.md."
     echo "Please add URLs in the format: https://domain/wiki/spaces/SPACE/pages/12345/Page-Title"
     exit 0
 fi
